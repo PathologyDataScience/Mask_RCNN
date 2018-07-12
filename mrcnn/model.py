@@ -1227,9 +1227,9 @@ def load_image_gt(dataset, config, image_id, augment=False, augmentation=None,
     mask = utils.resize_mask(mask, scale, padding, crop)
 
     # TEMP !!!! ---------------------------------------
-    with open("/home/mohamedt/Desktop/WSI_Segmentation/tmp.txt", 'a') as f:
-        f.write("image_id: %d, mask_shape: %s, class_ids: %s\n" % (
-            image_id, str(mask.shape), str(np.unique(class_ids))))
+    #with open("/home/mohamedt/Desktop/WSI_Segmentation/tmp.txt", 'a') as f:
+    #    f.write("image_id: %d, mask_shape: %s, class_ids: %s\n" % (
+    #        image_id, str(mask.shape), str(np.unique(class_ids))))
     # ------------------------------------------------
 
     # Random horizontal flips.
@@ -2317,10 +2317,10 @@ class MaskRCNN():
             layers = layer_regex[layers]
 
         # Data generators
-        train_generator = data_generator(train_dataset, self.config, shuffle=True, # TEMP!!! (shuffle should be True)
+        train_generator = data_generator(train_dataset, self.config, shuffle=True, 
                                          augmentation=augmentation,
                                          batch_size=self.config.BATCH_SIZE)
-        val_generator = data_generator(val_dataset, self.config, shuffle=True, # TEMP!!! (shuffle should be True)
+        val_generator = data_generator(val_dataset, self.config, shuffle=True, 
                                        batch_size=self.config.BATCH_SIZE)
 
         # Callbacks
